@@ -4,13 +4,13 @@
 
 EAPI=5
 
-VALA_MIN_API_VERSION=0.20
+VALA_MIN_API_VERSION=0.22
 
 inherit vala cmake-utils bzr
 
-DESCRIPTION="Switchboard plug to show system information."
-HOMEPAGE="http://launchpad.net/switchboard-plug-about"
-EBZR_REPO_URI="lp:switchboard-plug-about"
+DESCRIPTION="Configure various aspects of the security of the system."
+HOMEPAGE="https://launchpad.net/switchboard-plug-security-privacy"
+EBZR_REPO_URI="lp:switchboard-plug-security-privacy"
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -18,9 +18,12 @@ KEYWORDS=""
 IUSE="nls"
 
 RDEPEND="
+	dev-libs/glib:2
+	gnome-extra/zeitgeist
+	>=pantheon-base/switchboard-2
+	sys-auth/polkit
 	x11-libs/granite
-	x11-libs/gtk+:3
-	>=pantheon-base/switchboard-2"
+	x11-libs/gtk+:3"
 DEPEND="${RDEPEND}
 	$(vala_depend)
 	virtual/pkgconfig

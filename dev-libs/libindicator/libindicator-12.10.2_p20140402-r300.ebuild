@@ -7,21 +7,21 @@ inherit flag-o-matic autotools-utils
 
 DESCRIPTION="A set of symbols and convience functions that all indicators would like to use"
 HOMEPAGE="http://launchpad.net/libindicator"
-SRC_URI="http://launchpad.net/${PN}/${PV%.*}/${PV}/+download/${P}.tar.gz"
+SRC_URI="https://launchpad.net/ubuntu/+archive/primary/+files/libindicator_12.10.2%2B14.04.20140402.orig.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="3"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="static-libs"
 
-RDEPEND=">=dev-libs/glib-2.22
-	>=x11-libs/gtk+-3.2:3"
+RDEPEND=">=dev-libs/glib-2.37:2
+	>=x11-libs/gtk+-3.6:3
+	>=x11-libs/libido-13.10"
 DEPEND="${RDEPEND}
 	virtual/pkgconfig"
 
-pkg_setup() {
-	DOCS=( AUTHORS ChangeLog NEWS )
-}
+S="${WORKDIR}/libindicator-12.10.2+14.04.20140402"
+AUTOTOOLS_AUTORECONF=1
 
 src_prepare() {
 	autotools-utils_src_prepare
